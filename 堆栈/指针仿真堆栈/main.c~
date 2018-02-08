@@ -1,0 +1,101 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef int ElemType;
+typedef struct Stack *link;
+typedef struct Stack Snode;
+
+struct Stack
+{
+	ElemType data;
+	struct Stack *next;
+};
+
+link init()
+{
+	link p;
+
+	p = NULL;
+	return p;
+}
+
+link push(link Head, ElemType x)
+{
+	link p;
+
+	p = (link)malloc(sizeof(Snode));
+	if (p == NULL)
+	{
+		printf("\nMemory Error\n");
+		return Head;
+	}
+	p->data = x;
+	p->next = Head;
+	return p;
+}
+
+link pop(link Head)
+{
+	link p;
+
+	p = Head;
+	if (p == NULL)
+		printf("\nStack is empty!\n");
+	else
+	{
+		p = p->next;
+		free(Head);
+	}
+	return p;
+}
+
+ElemType getTop(link Head)
+{
+	if (Head == NULL)
+	{
+		printf("\nStack is empty!\n");
+		return -1;
+	}
+	else
+		return Head->data;
+}
+
+int isEmpty(link Head)
+{
+	if (Head == NULL)
+		return 1;
+	else
+		return 0;
+}
+
+void display(link Head)
+{
+	link p;
+	p = Head;
+
+	if (p == NULL)
+		printf("\nStack is empty\n");
+	else
+		do
+		{
+			printf("%d ", p->data);
+			p = p->next;
+		} while (p != NULL);
+}
+
+link setNull(link Head)
+{
+	link p;
+	p = Head;
+	while (p != NULL)
+	{
+		p = p->next;
+		free(Head);
+		Head = p;
+	}
+	return Head;
+}
+
+int main(int argc, char *argv[])
+{
+}
