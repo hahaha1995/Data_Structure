@@ -7,9 +7,9 @@ struct tree
     struct tree *left;
     struct tree *right;
 };
-
 typedef struct tree treeNode;
 typedef struct tree *b_tree;
+
 b_tree insert(b_tree root, int node);
 b_tree create(int *data, int len);
 void print(b_tree root);
@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
     print(root);
     return EXIT_SUCCESS;
 }
+
 b_tree create(int *data, int len)
 {
     int i;
