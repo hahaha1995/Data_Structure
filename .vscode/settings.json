@@ -1,2 +1,8 @@
 {
+    "files.associations": {
+        "deque": "c",
+        "map": "c",
+        "string": "c",
+        "vector": "c"
+    }
 }
